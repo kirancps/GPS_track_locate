@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Robot GPS Location</title>
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+var myCenter=new google.maps.LatLng(12.837269, 80.137222);
+var x=new google.maps.LatLng(12.840499, 80.136882);
+var x1=new google.maps.LatLng(12.839730, 80.136488);
+var x2=new google.maps.LatLng(12.836147, 80.134847);
+var x3=new google.maps.LatLng(12.835409, 80.137103);
+var marker;
+
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:17,
+  mapTypeId:google.maps.MapTypeId.SATELLITE
+  };
+
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker=new google.maps.Marker({
+  position:x3,
+  animation:google.maps.Animation.BOUNCE
+  });
+
+marker.setMap(map);
+
+var myTrip=[x,x1,x2,x3];
+var flightPath=new google.maps.Polyline({
+  path:myTrip,
+  strokeColor:"#FF0000",
+  strokeOpacity:0.8,
+  strokeWeight:4
+  });
+
+flightPath.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+
+<body>
+<div id="googleMap" style="width:1024px;height:720px;"></div>
+</body>
+</html>

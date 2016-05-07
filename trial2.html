@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Robot GPS Kiran Location</title>
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+var myCenter=new google.maps.LatLng(12.837269, 80.137222);
+var x=new google.maps.LatLng(12.838422,80.138083);
+var x1=new google.maps.LatLng(12.838400,80.138118);
+var x2=new google.maps.LatLng(12.838373,80.138137);
+var x4=new google.maps.LatLng(12.838353,80.138445);
+var x5=new google.maps.LatLng(12.838393,80.138448);
+
+var x6=new google.maps.LatLng(12.838463,80.138385);
+var x7=new google.maps.LatLng(12.838493,80.138592);
+var x8=new google.maps.LatLng(12.838517,80.138723);
+var x9=new google.maps.LatLng(12.838513,80.138905);
+var x10=new google.maps.LatLng(12.838502,80.138970);
+var x11=new google.maps.LatLng(12.838448,80.139017);
+var x12=new google.maps.LatLng(12.838397,80.139062);
+var x3=new google.maps.LatLng(12.838217,80.139050);
+
+
+var marker;
+
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:17,
+  mapTypeId:google.maps.MapTypeId.SATELLITE
+  };
+
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker=new google.maps.Marker({
+  position:x3,
+  animation:google.maps.Animation.BOUNCE
+  });
+
+marker.setMap(map);
+
+var myTrip=[x,x1,x2,x4,x5,x6,x7,x8,x9,x10,x11,x12,x3];
+var flightPath=new google.maps.Polyline({
+  path:myTrip,
+  strokeColor:"#FF0000",
+  strokeOpacity:0.8,
+  strokeWeight:4
+  });
+
+flightPath.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+
+<body>
+<div id="googleMap" style="width:1024px;height:720px;"></div>
+</body>
+</html>
